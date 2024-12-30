@@ -3,8 +3,9 @@ import java.util.List;
 // Контроллер отвечает за взаимодействие между внешним интерфейсом и логикой приложения.
 public class Controller {
 
-    // Создание экземпляра службы управления группой студентов
+    // Создание экземпляров сервисов
     private final StudentGroupService studentGroupService = new StudentGroupService();
+    private final StreamService streamService = new StreamService();
 
     /**
      * Удаляет студента из группы по его полному имени.
@@ -30,5 +31,13 @@ public class Controller {
      */
     public List<Student> getSortedStudentByFIO(){
         return studentGroupService.getSortedStudentByFIO();
+    }
+
+    /**
+     * Метод для сортировки списка потоков.
+     * @param streams Список потоков, который нужно отсортировать
+     */
+    public void sortStreams(List<Stream> streams) {
+        streamService.sortStreams(streams); // Используем сервис для сортировки
     }
 }
